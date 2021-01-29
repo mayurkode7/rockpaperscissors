@@ -88,6 +88,18 @@ div.fade-in {
   pointer-events: all;
 }
 
+footer {
+  font-family: sans-serif;
+  text-align: center;
+  margin-top: 3vh;
+  color: rgb(224, 224, 224);
+}
+
+footer a {
+  color: rgb(224, 224, 224);
+  font-style: italic;
+}
+
 @keyframes shakePlayer {
   0% {
     transform: rotateY(180deg) translateY(0px);
