@@ -1,10 +1,11 @@
-const rock = 'rock'
-const paper = 'paper'
-const scissors = 'scissors'
+
 
 const game = () => {
     let playerScore = 0
     let computerScore = 0
+    const rock = 'rock'
+    const paper = 'paper'
+    const scissors = 'scissors'
 
     const startGame = () => {
         const playBtn = document.querySelector('.play-btn')
@@ -22,20 +23,36 @@ const game = () => {
         const options = document.querySelectorAll('.options button')
         const playerHand = document.querySelector('.player-hand')
         const computerHand = document.querySelector('.computer-hand')
+        const hands = document.querySelectorAll('.hands img')
+
+        hands.forEach(hand => {
+            hand.addEventListener('animationend', function () {
+                this.style.animation = ''
+            })
+        });
 
         const computerOptions = [rock, paper, scissors]
+
 
 
         options.forEach(option => {
             option.addEventListener('click', function () {
                 const computerNumber = Math.floor(Math.random() * 3)
                 const computerChoice = computerOptions[computerNumber]
-                computerHand.src = `./assets/${computerChoice}.png`
-                const playerChoice = this.textContent;
-                playerHand.src = `./assets/${playerChoice}.png`
-                compareHands(playerChoice, computerChoice)
+
+                setTimeout(() => {
+                    computerHand.src = `./assets/${computerChoice}.png`
+                    const playerChoice = this.textContent;
+                    playerHand.src = `./assets/${playerChoice}.png`
+                    compareHands(playerChoice, computerChoice)
+                }, 2000);
+
+                playerHand.style.animation = 'shakePlayer 2s ease'
+                computerHand.style.animation = 'shakeComputer 2s ease'
             })
         })
+
+
     }
 
 
