@@ -68,6 +68,7 @@ section {
   position: absolute;
   left: 50%;
   top: 50%;
+  width: 80%;
   /* border: 1px solid; */
   transform: translate(-50%, -50%);
   text-align: center;
